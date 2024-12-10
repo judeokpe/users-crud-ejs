@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, th, td{
+            border: 2px solid cyan;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<div class="">
+    <a href="/users/add">Add User</a>
+    <table>
+
+        <tr>
+            <th>S/N</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Action</th>
+        </tr>
+
+        <% users.forEach(user=>{ %>
+            <tr> 
+               <th><%= user.id %></th>
+                <th> <a href="/users/single-user/<%= user.id %>"> <%= user.name %></a></th>
+                <th><%= user.age %></th>
+                
+                <td style="display: flex; padding: 4px; gap; gap:10px; "><a href="/users/edit/<%= user.id %>" style="background:green; padding:3px; color:white; padding: 4px 8px; border-radius: 8px; text-decoration: none;">Edit</a>  <form action="/users/delete/<%= user.id %>?_method = DELETE" method="post"> <button type="submit" style="outline: none; border: none; background: red; color: white; padding: 4px 8px; border-radius: 8px; cursor: pointer;">Delete</button></form></td>
+                
+            </tr>
+      <% }) %>
+    </table>
+</div>
+
+
+    <form action="" method="get">
+       
+    </form>
+</body>
+</html>
